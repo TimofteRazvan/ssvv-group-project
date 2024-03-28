@@ -36,7 +36,7 @@ public class TestClass
     @Test
     public void test1_addStudent_ValidStudent_Success()
     {
-        Student testStudent = new Student("test_id", "Test Student", 933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student("test_id", "Test Student", 937, "test_email@stud.ubbcluj.ro");
         try {
             service.addStudent(testStudent);
             assertTrue( true );
@@ -49,7 +49,7 @@ public class TestClass
     @Test
     public void test2_addStudent_IdEmpty_Fail()
     {
-        Student testStudent = new Student("", "Test Student", 933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student("", "Test Student", 937, "test_email@stud.ubbcluj.ro");
         try {
             service.addStudent(testStudent);
             fail();
@@ -62,7 +62,7 @@ public class TestClass
     @Test
     public void test3_addStudent_IdNull_Fail()
     {
-        Student testStudent = new Student(null, "Test Student", 933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student(null, "Test Student", 937, "test_email@stud.ubbcluj.ro");
         try {
             service.addStudent(testStudent);
             fail();
@@ -75,7 +75,7 @@ public class TestClass
     @Test
     public void test4_addStudent_IdNotUnique_Fail()
     {
-        Student testStudent = new Student("test_id", "Test Student", 933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student("test_id", "Test Student N", 937, "test_email@stud.ubbcluj.ro");
         try {
             Student result = service.addStudent(testStudent);
             assert(result == testStudent);
@@ -88,7 +88,7 @@ public class TestClass
     @Test
     public void test5_addStudent_NameNull_Fail()
     {
-        Student testStudent = new Student("test_id_1", null, 933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student("test_id_1", null, 937, "test_email@stud.ubbcluj.ro");
         try {
             service.addStudent(testStudent);
             fail();
@@ -101,7 +101,7 @@ public class TestClass
     @Test
     public void test6_addStudent_NameEmpty_Fail()
     {
-        Student testStudent = new Student("test_id_2", "", 933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student("test_id_2", "", 937, "test_email@stud.ubbcluj.ro");
         try {
             service.addStudent(testStudent);
             fail();
@@ -112,9 +112,9 @@ public class TestClass
     }
 
     @Test
-    public void test7_addStudent_NegativeGroup_Fail()
+    public void test7_addStudent_GroupNegative_Fail()
     {
-        Student testStudent = new Student("test_id", "Test Student", -933, "test_email@stud.ubbcluj.ro");
+        Student testStudent = new Student("test_id_3", "Test Student", -937, "test_email@stud.ubbcluj.ro");
         try {
             service.addStudent(testStudent);
             fail();
@@ -127,7 +127,7 @@ public class TestClass
     @Test
     public void test8_addStudent_EmailEmpty_Fail()
     {
-        Student testStudent = new Student("test_id_2", "Test Student", 933, "");
+        Student testStudent = new Student("test_id_4", "Test Student", 937, "");
         try {
             service.addStudent(testStudent);
             fail();
@@ -140,7 +140,7 @@ public class TestClass
     @Test
     public void test9_addStudent_EmailNull_Fail()
     {
-        Student testStudent = new Student("test_id_2", "Test Student", 933, null);
+        Student testStudent = new Student("test_id_5", "Test Student", 937, null);
         try {
             service.addStudent(testStudent);
             fail();
