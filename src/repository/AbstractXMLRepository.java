@@ -1,18 +1,12 @@
 package repository;
 
-import domain.Student;
-import validation.ValidationException;
-import java.io.*;
-import java.util.Optional;
-
 //import javafx.scene.input.DataFormat;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+        import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -123,14 +117,16 @@ public abstract class AbstractXMLRepository<ID, E extends HasID<ID>> extends Abs
 
     /**
      * Scrie un obiect nou in fisier
+     *
      * @param entity - obiectul pe care il scrie
+     * @return
      */
-    public void saveToFile(E entity)
+    public E saveToFile(E entity)
     {
-        //E e = super.save(entity);
-        //if(e==null){writeToFile();
-        //}
-        //return e;
+        E e = super.save(entity);
+        if(e==null){writeToFile();
+        }
+        return e;
     }
 
 

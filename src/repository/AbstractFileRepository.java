@@ -40,15 +40,18 @@ public abstract class AbstractFileRepository<ID, E extends HasID<ID>> extends Ab
 
     /**
      * Scrie un obiect nou in fisier
+     *
      * @param entity - obiectul pe care il scrie
+     * @return
      */
-    public void saveToFile(E entity){
+    public E saveToFile(E entity){
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename, true))) {
             bufferedWriter.write(entity.toString());
             bufferedWriter.newLine();
         } catch (IOException exception) {
             throw new ValidationException(exception.getMessage());
         }
+        return null;
     }
 
     /**

@@ -14,9 +14,11 @@ public interface FileRepository<ID, E extends HasID<ID>> {
 
     /**
      * Scrie un obiect nou in fisier
+     *
      * @param entity - obiectul pe care il scrie
+     * @return
      */
-    void saveToFile(E entity);
+    E saveToFile(E entity);
 
     /**
      * Rescrie fisierul
