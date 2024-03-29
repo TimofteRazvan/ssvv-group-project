@@ -11,6 +11,9 @@ import validation.NotaValidator;
 import validation.StudentValidator;
 import validation.TemaValidator;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class TestClassAssignment
 {
     public static Service service;
@@ -27,39 +30,31 @@ public class TestClassAssignment
         TemaXMLRepo temaXMLRepository = new TemaXMLRepo(filenameTema);
         NotaValidator notaValidator = new NotaValidator(studentXMLRepository, temaXMLRepository);
         NotaXMLRepo notaXMLRepository = new NotaXMLRepo(filenameNota);
-        TestClassStudent.service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+        TestClassAssignment.service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
     }
 
     // White box testing
     @Test
     public void addTema_ValidData_CreateSuccessfully() {
-        String nrTema = "100";
-        String descriere = "test";
-        int deadline = 12;
-        int primire = 1;
-        Tema tema = new Tema(nrTema, descriere, deadline, primire);
+        Tema tema = new Tema("101", "test", 12, 1);
         try {
             service.addTema(tema);
-            assert(true);
-        } catch (Exception exception) {
-            System.out.println("Exception: " + exception.getMessage());
-            assert(true);
+            assertTrue( true );
+        } catch (Exception e){
+            System.out.println(e);
+            fail();
         }
     }
 
     @Test
     public void addTema_Invalid_nrTema_emptyString_ThrowsError() {
-        String nrTema = "22";
-        String descriere = "test";
-        int deadline = 12;
-        int primire = 2;
-        Tema tema = new Tema(nrTema, descriere, deadline, primire);
+        Tema tema = new Tema("", "test", 12, 1);
         try {
             service.addTema(tema);
-            assert(false);
-        } catch (Exception exception) {
-            System.out.println("Exception: " + exception.getMessage());
-            assert(true);
+            fail();
+        } catch (Exception e){
+            System.out.println(e);
+            assertTrue(true);
         }
     }
 
