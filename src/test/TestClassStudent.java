@@ -1,8 +1,6 @@
 package test;
 
 import domain.Student;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import repository.NotaXMLRepo;
@@ -14,7 +12,7 @@ import validation.StudentValidator;
 import validation.TemaValidator;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestClass
+public class TestClassStudent
 {
     public static Service service;
 
@@ -30,7 +28,7 @@ public class TestClass
         TemaXMLRepo temaXMLRepository = new TemaXMLRepo(filenameTema);
         NotaValidator notaValidator = new NotaValidator(studentXMLRepository, temaXMLRepository);
         NotaXMLRepo notaXMLRepository = new NotaXMLRepo(filenameNota);
-        TestClass.service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+        TestClassStudent.service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
     }
 
     @Test
