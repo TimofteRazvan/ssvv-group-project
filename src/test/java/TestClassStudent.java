@@ -1,5 +1,3 @@
-package test;
-
 import domain.Student;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
